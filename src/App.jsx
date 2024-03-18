@@ -1,5 +1,5 @@
 import ImageGenetor from "./Components/ImageGenerator/imageGenerator";
-require("dotenv").config();
+// require("dotenv").config();
 
 function App() {
   return (

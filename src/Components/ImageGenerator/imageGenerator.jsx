@@ -4,7 +4,6 @@ import InputBar from "../Assets/InputBar";
 import LoadingBar from "../Assets/LoadingBar";
 import ai from "./ai.avif";
 import { useState, useRef } from "react";
-require("dotenv").config();
 
 export default function ImageGenetor() {
   const [image_url, setImage_url] = useState("/");
@@ -53,10 +52,10 @@ export default function ImageGenetor() {
 
   return (
     <>
-      <div className="flex flex-col mt-[40px] mx-auto items-center gap-[30px] font-serif text-white">
+      <div className="flex flex-col mt-[40px] mx-auto items-center gap-[30px] font-serif text-white text-center h-screen max-h-screen">
         <Header />
 
-        <div className="image-loading flex flex-col">
+        <div className="image-loading flex flex-col mt-5 mb-12 sm:mb-0">
           <Images image_url={image_url} ai={ai} />
           <LoadingBar loading={loading} />
         </div>
