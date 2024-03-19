@@ -10,7 +10,7 @@ export default function ImageGenetor() {
   // const [image_url2, setImage_url2] = useState("/");
   let inputRef = useRef(null);
   let [loading, setLoading] = useState(false);
-
+  
   document.onkeydown = function (e) {
     if (e.keyCode == 13) {
       imageGenerator();
@@ -22,7 +22,7 @@ export default function ImageGenetor() {
       return;
     }
     setLoading(true);
-    // console.log(inputRef.current.value);
+
     const response = await fetch(
       "https://api.openai.com/v1/images/generations",
 
@@ -30,7 +30,7 @@ export default function ImageGenetor() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.secret}`,
+          Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
           "User-Agent": "Chrome",
         },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ export default function ImageGenetor() {
           <LoadingBar loading={loading} />
         </div>
 
-        <InputBar inputRef={inputRef} />
+        <InputBar inputRef={inputRef} onGenerate={imageGenerator} />
       </div>
     </>
   );
