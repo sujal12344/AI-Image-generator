@@ -1,4 +1,4 @@
-import ImageGenetor from "./Components/ImageGenerator/imageGenerator";
+import ImageGenetor from "./Components/imageGenerator";
 // require("dotenv").config();
 
 function App() {

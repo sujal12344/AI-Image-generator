@@ -1,8 +1,7 @@
-# React + Vite
+# AI Image Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This image generator is build using openAI API
 
-Currently, two official plugins are available:
+- [AI Image Generator](https://ai-image-generator-eta-flame.vercel.app/) for generating Image
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Uses](https://ai-image-generator-eta-flame.vercel.app/)

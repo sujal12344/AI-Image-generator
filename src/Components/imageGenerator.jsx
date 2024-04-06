@@ -1,16 +1,16 @@
-import Header from "../Assets/Header";
-import Images from "../Assets/Images";
-import InputBar from "../Assets/InputBar";
-import LoadingBar from "../Assets/LoadingBar";
-import ai from "./ai.avif";
+import Header from "./Header";
+import Images from "./Images";
+import InputBar from "./InputBar";
+import LoadingBar from "./LoadingBar";
+import ai from "../Images/ai.avif";
 import { useState, useRef } from "react";
 
-export default function ImageGenetor() {
+export default function ImageGenerator() {
   const [image_url, setImage_url] = useState("/");
   // const [image_url2, setImage_url2] = useState("/");
   let inputRef = useRef(null);
   let [loading, setLoading] = useState(false);
-  
+
   document.onkeydown = function (e) {
     if (e.keyCode == 13) {
       imageGenerator();
