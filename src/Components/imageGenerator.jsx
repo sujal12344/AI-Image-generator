@@ -4,6 +4,7 @@ import InputBar from "./InputBar";
 import LoadingBar from "./LoadingBar";
 import ai from "../Images/ai.avif";
 import { useState, useRef } from "react";
+import toast from 'react-hot-toast';
 
 export default function ImageGenerator() {
   const [image_url, setImage_url] = useState("/");
@@ -23,31 +24,38 @@ export default function ImageGenerator() {
     }
     setLoading(true);
 
-    const response = await fetch(
-      "https://api.openai.com/v1/images/generations",
-
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
-          "User-Agent": "Chrome",
-        },
-        body: JSON.stringify({
-          prompt: `${inputRef.current.value}`,
-          n: 1,
-          size: "512x512",
-        }),
-      }
-    );
-
-    let data = await response.json();
-    let data_array = data.data;
-    // console.log(data);
-    setImage_url(data_array[0].url);
-    console.log(data_array[0].url);
+    try{
+      const response = await fetch(
+        "https://api.openai.com/v1/images/generations",
+  
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
+            "User-Agent": "Chrome",
+          },
+          body: JSON.stringify({
+            prompt: `${inputRef.current.value}`,
+            n: 1,
+            size: "512x512",
+          }),
+        }
+      );
+  
+      let data = await response.json();
+      let data_array = data.data;
+      setImage_url(data_array[0].url);
+      console.log(data_array[0].url);
+    }
     // setImage_url2(data_array[1].url);
-    setLoading(false);
+    catch(error){
+      console.log(`Error while generating Image due to: ${error.message}`)
+      toast.error(error.message);
+    }
+    finally{
+      setLoading(false);
+    }
   };
 
   return (
