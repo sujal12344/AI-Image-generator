@@ -50,7 +50,6 @@ export default function ImageGenerator() {
     // setImage_url2(data_array[1].url);
     catch(error){
       console.log(`Error while generating Image due to: ${error.message}`)
-      toast.error(error.message);
     }
     finally{
       setLoading(false);
