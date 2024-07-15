@@ -4,7 +4,6 @@ import InputBar from "./InputBar";
 import LoadingBar from "./LoadingBar";
 import ai from "../Images/ai.avif";
 import { useState, useRef } from "react";
-import toast from 'react-hot-toast';
 
 export default function ImageGenerator() {
   const [image_url, setImage_url] = useState("/");
